@@ -1,0 +1,1 @@
+print(['No','Yes'][sorted(list(input()))==sorted(list(input()))])
