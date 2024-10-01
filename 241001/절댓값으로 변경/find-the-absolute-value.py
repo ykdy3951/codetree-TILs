@@ -1,0 +1,1 @@
+input();print(' '.join(map(lambda x : str(abs(int(x))), input().split())))
