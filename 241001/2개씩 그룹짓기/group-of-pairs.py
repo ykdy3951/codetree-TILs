@@ -1,7 +1,7 @@
 n=int(input());l=sorted(list(map(int,input().split())))
 
-ans = 2000
+ans = 0
 for i in range(n):
-    ans = min(ans, l[i] + l[2*n-1-i])
+    ans = max(ans, l[i] + l[-i])
 
 print(ans)
