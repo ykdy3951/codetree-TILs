@@ -1,10 +1,20 @@
 n = int(input())
-l = [0, 0]
-for _ in range(n):
-    x, cnt = input().split()
-    x = int(x)
-    cnt = 1 if cnt == 'L' else 2
+l = [0] * (200001)
+
+idx = 100000
+
+for i in range(n):
+    x, y = input().split()
+    y = 1 if y == 'L' else -1
     
-    l[cnt-1] += x
-    l[2-cnt] = max(0, l[2-cnt]-x)
-print(l[0], l[1])
+    for j in range(int(x)-1):
+        l[idx] = y
+        idx += y
+    l[idx] = y
+ans = [0, 0]
+for i in range(200001):
+    if l[i] == 1:
+        ans[0] += 1
+    elif l[i] == -1:
+        ans[1] += 1
+print(ans[0], ans[1])
