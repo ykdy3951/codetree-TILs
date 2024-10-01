@@ -9,4 +9,4 @@ for i in range(12):
     l[i+1] += l[i]
 
 days = l[m2 - 1] + d2 - (l[m1 - 1] + d1 - 1 + t.index(dotk))
-print(days // 7 + 1 if days > 0 else 0)
+print((days - 1) // 7 + 1 if days > 0 else 0)
