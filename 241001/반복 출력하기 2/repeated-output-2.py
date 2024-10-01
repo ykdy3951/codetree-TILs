@@ -1,0 +1,1 @@
+print('HelloWorld\n'*int(input()))
