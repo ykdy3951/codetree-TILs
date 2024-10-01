@@ -25,7 +25,7 @@ def is_valid_day(y, m, d):
 
 def solve(y, m, d):
     if is_valid_day(y, m, d):
-        print(['Spring', 'Summer', 'Fall', 'Winter'][(m + 9) // 3])
+        print(['Spring', 'Summer', 'Fall', 'Winter'][((m + 9) % 12) // 3])
     else:
         print(-1)
 
