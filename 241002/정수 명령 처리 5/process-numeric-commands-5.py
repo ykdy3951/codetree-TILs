@@ -3,14 +3,12 @@ from collections import deque
 d = deque()
 
 for _ in range(int(input())):
-    x,y=input().split()
-    y=int(y)
+    x=input()
 
-    if x == 'push_back':
-        d.append(y)
-    
+    if x[:9] == 'push_back':
+        d.append(x.split()[1])
     elif x[0] == 'g':
-        print(d[k-1])
+        print(d[int(x.split()[1])-1])
     elif x[0] == 's':
         print(len(d))
     else:
