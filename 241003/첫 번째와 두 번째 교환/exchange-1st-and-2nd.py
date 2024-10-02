@@ -1,5 +1,3 @@
-s=input()
+s=list(input())
 a,b=s[0],s[1]
-s=s.replace(b,a)
-s=s.replace(a,b)
-print(b+a+s[2:])
+print(''.join(map(lambda x: a if x == b else b if x == a else x, s)))
