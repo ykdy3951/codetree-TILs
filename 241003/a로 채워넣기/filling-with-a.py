@@ -1,3 +1,3 @@
-s=input()
+s=list(input())
 s[1]=s[-2]='a'
-print(s)
+print(''.join(s))
