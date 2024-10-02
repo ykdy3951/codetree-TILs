@@ -6,7 +6,7 @@ def solve(s : str) -> bool:
         if i == '(':
             d.append(i)
         else:
-            if len(d):
+            if not len(d):
                 return False
             d.pop()
     if len(d):
