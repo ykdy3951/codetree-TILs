@@ -1,24 +1,24 @@
 N = int(input())
 CENTER = 100000
 t = 0
-cnt = [[-1,0] for _ in range(2 * CENTER + 5)]
+cnt = [[-1,0, 0] for _ in range(2 * CENTER + 5)]
 for i in range(N):
     x, y = input().split()
     x = int(x)
 
     if y == 'L':
         for j in range(t, t-x, -1):
-            if cnt[j + CENTER][1] >= 3:
-                cnt[j + CENTER] = [2, 4]
+            if cnt[j + CENTER][1] >= 1 and cnt[j + CENTER][2] >= 2:
+                cnt[j + CENTER] = [2, 2, 2]
             else:
-                cnt[j + CENTER] = [0, cnt[j + CENTER][1] + 1]
+                cnt[j + CENTER] = [0, cnt[j + CENTER][1] + 1, cnt[j + CENTER][2]]
         t = t-x+1
     else:
         for j in range(t, t+x):
-            if cnt[j + CENTER][1] >= 3:
-                cnt[j + CENTER] = [2, 4]
+            if cnt[j + CENTER][1] >= 2 and cnt[j + CENTER][2] >= 1:
+                cnt[j + CENTER] = [2, 2, 2]
             else:
-                cnt[j + CENTER] = [1, cnt[j + CENTER][1] + 1]
+                cnt[j + CENTER] = [1, cnt[j + CENTER][1], cnt[j + CENTER][2] + 1]
         t = t+x-1
 
 ans = [0] * 3
