@@ -1,24 +1,15 @@
 n=int(input())
-l=[0]+list(map(int,input().split()))
-for i in range(1, n+1):
-    l[i]+=l[i-1]
-ans=0
+l=list(map(int,input().split()))
 
-def bt(idx, last, flag, bundle):
-    global ans
-    if idx > n:
-        ans=max(ans, bundle)
-        return
+arr=[0, 0]
+for i in l:
+    arr[i%2] += 1
 
-    for i in range(idx, n+1):
-        if flag and (l[i] - last) % 2:
-            continue
-        if not flag and (l[i] - last) % 2 == 0:
-            continue
+while not (arr[0] == arr[1] or arr[0] == arr[1] + 1):
+    if arr[0] > arr[1] + 1:
+        arr[0] -= 1
+    else:
+        arr[1] -= 2
+        arr[0] += 1
 
-        bt(i+1, l[i], not flag, bundle + 1)
-    
-    return
-
-bt(1, 0, True, 0)
-print(ans)
+print(arr[0] + arr[1])
