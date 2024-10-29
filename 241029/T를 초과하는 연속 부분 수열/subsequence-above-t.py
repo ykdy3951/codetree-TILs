@@ -1,12 +1,12 @@
 n, t = map(int, input().split())
 l = list(map(int, input().split()))
 ans=0
-tmp=int(l[0] > t)
-for i in range(1, n):
-    if l[i] > l[i - 1] and l[i] > t:
+tmp=0
+for i in range(n):
+    if l[i] > t:
         tmp += 1
     else:
         ans = max(ans, tmp)
-        tmp = int(l[i] > t)
+        tmp = 0
 
 print(max(ans, tmp))
