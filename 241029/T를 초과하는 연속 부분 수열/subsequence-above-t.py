@@ -7,6 +7,6 @@ for i in range(1, n):
         tmp += 1
     else:
         ans = max(ans, tmp)
-        tmp = int(l[0] > t)
+        tmp = int(l[i] > t)
 
 print(max(ans, tmp))
