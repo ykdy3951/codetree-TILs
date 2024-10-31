@@ -12,4 +12,4 @@ for i in range(n):
         if x[i] == c:
             score[i] += 1
 
-print(score.index(max(score)) + 1)
+print(max(score))
