@@ -1,5 +1,5 @@
 n=int(input())
-l=[list(map(int,input())) for i in range(n)]
+l=[list(map(int,input().split())) for i in range(n)]
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
 ans = 0
