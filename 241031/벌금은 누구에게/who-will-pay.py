@@ -3,7 +3,7 @@ l=[0] * n
 for i in range(m):
     x = int(input())
     l[x-1] += 1
-    if l[x-1] >= m:
+    if l[x-1] >= k:
         print(x)
         exit()
 print(-1)
