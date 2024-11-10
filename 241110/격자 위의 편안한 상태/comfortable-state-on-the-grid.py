@@ -16,7 +16,7 @@ for i in range(m):
             continue
         if l[nx][ny]:
             cnt += 1
-    if cnt >= 3:
+    if cnt == 3:
         print(1)
     else:
         print(0)
