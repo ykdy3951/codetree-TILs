@@ -11,10 +11,13 @@ D = {
 ans = 0
 for i in range(int(input())):
     d, s = input().split()
-    x += D[d][0]
-    y += D[d][1]
-    ans += int(s)
+    s = int(s)
+    while s:
+        s -= 1
+        ans += 1
+        x += D[d][0]
+        y += D[d][1]
 
-    if x == y and y == 0:
-        print(ans)
-        break
+        if x == y == 0:
+            print(ans)
+            exit()
