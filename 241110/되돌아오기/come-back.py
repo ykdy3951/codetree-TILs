@@ -21,3 +21,4 @@ for i in range(int(input())):
         if x == y == 0:
             print(ans)
             exit()
+print(-1)
