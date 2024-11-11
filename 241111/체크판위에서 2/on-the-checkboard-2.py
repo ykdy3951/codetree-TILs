@@ -9,14 +9,20 @@ for i in range(r):
 
 ans = 0
 # B
-if l[0][0]:
+if l[0][0] and l[-1][-1] == 0:
     for b in B[1:]:
         if b[0] >= 2 and b[1] >= 2 and b[0] < r - 1 and b[1] < c - 1:
-            ans += (b[0] - 1) * (b[1] - 1)
+            for i in range(1, b[0]):
+                for j in range(1, b[1]):
+                    if l[i][j]:
+                        ans += 1
 # W
-else:
+elif l[0][0] == 0 and l[-1][-1]:
     for b in B[:-1]:
         if b[0] >= 1 and b[1] >= 1 and b[0] < r - 2 and b[1] < c - 2:
-            ans += (r - 2 - b[0]) * (c - 2 - b[1])
+            for i in range(b[0]+1, r-1):
+                for j in range(b[1]+1, c-1):
+                    if l[i][j] == 0:
+                        ans += 1
 
 print(ans)
