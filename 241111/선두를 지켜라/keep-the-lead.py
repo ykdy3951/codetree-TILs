@@ -2,8 +2,8 @@ ans = 0
 
 n, m = map(int,input().split())
 total_t = 0
-a_arr = [0] * (1001)
-b_arr = [0] * (1001)
+a_arr = [0] * 1000001
+b_arr = [0] * 1000001
 
 for i in range(n):
     v, t = map(int, input().split())
