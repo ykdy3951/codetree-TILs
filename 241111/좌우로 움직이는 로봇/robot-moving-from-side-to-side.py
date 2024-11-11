@@ -17,7 +17,8 @@ for i in range(n):
     for j in range(total_t + 1, total_t + t + 1):
         a_arr[j] = a_arr[j-1] + D[d]
     total_t += t
-a_total = total_t
+for i in range(total_t + 1, 1000001):
+    a_arr[i] = a_arr[i-1]
 
 total_t = 0
 for i in range(m):
@@ -25,10 +26,13 @@ for i in range(m):
     t = int(t)
     for j in range(total_t + 1, total_t + t + 1):
         b_arr[j] = b_arr[j-1] + D[d]
+    
     total_t += t
+for i in range(total_t + 1, 1000001):
+    b_arr[i] = b_arr[i-1]
 
 ans = 0
-for i in range(1, max(a_total, total_t)):
+for i in range(1, 1000001):
     if a_arr[i-1] != b_arr[i-1] and a_arr[i] == b_arr[i]:
         ans += 1
 print(ans)
