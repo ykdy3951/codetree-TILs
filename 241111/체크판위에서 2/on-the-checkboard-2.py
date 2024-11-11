@@ -14,7 +14,7 @@ if l[0][0] and l[-1][-1] == 0:
         if b[0] >= 2 and b[1] >= 2 and b[0] < r - 1 and b[1] < c - 1:
             for i in range(1, b[0]):
                 for j in range(1, b[1]):
-                    if l[i][j]:
+                    if l[i][j] == 0:
                         ans += 1
 # W
 elif l[0][0] == 0 and l[-1][-1]:
