@@ -20,7 +20,7 @@ for j in range(m):
 
 status = 2
 start = 0
-for i in range(total_t+1):
+for i in range(total_t):
     if a_arr[i] == b_arr[i]:
         continue
     status = (b_arr[i] > a_arr[i])
@@ -28,7 +28,7 @@ for i in range(total_t+1):
     break
 
 ans = 0
-for i in range(start, total_t+1):
+for i in range(start, total_t):
     if b_arr[i] == a_arr[i]:
         continue
     
