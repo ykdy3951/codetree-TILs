@@ -4,7 +4,7 @@ def snail_array(n, m):
     x, y = 0, 0
     dx, dy = 1, 0
 
-    while num <= n * n:
+    while num <= n * m:
         array[x][y] = num
         num += 1
         nx, ny = x + dx, y + dy
