@@ -9,6 +9,7 @@ D = {
     'R' : 1
 }
 
+a_total = 0
 total_t = 0
 for i in range(n):
     t, d = input().split()
@@ -16,6 +17,7 @@ for i in range(n):
     for j in range(total_t + 1, total_t + t + 1):
         a_arr[j] = a_arr[j-1] + D[d]
     total_t += t
+a_total = total_t
 
 total_t = 0
 for i in range(m):
@@ -26,7 +28,7 @@ for i in range(m):
     total_t += t
 
 ans = 0
-for i in range(1, 1000001):
+for i in range(1, max(a_total, total_t)):
     if a_arr[i-1] != b_arr[i-1] and a_arr[i] == b_arr[i]:
         ans += 1
 print(ans)
