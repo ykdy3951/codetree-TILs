@@ -11,20 +11,22 @@ D = {
 
 total_t = 0
 for i in range(n):
-    t, d = map(int, input().split())
+    t, d = input().split()
+    t = int(t)
     for j in range(total_t + 1, total_t + t + 1):
         a_arr[j] = a_arr[j-1] + D[d]
     total_t += t
 
 total_t = 0
-for j in range(m):
-    t, d = map(int, input().split())
+for i in range(m):
+    t, d = input().split()
+    t = int(t)
     for j in range(total_t + 1, total_t + t + 1):
         b_arr[j] = b_arr[j-1] + D[d]
     total_t += t
 
 ans = 0
-for i in range(1, total_t):
+for i in range(1, 1000001):
     if a_arr[i-1] != b_arr[i-1] and a_arr[i] == b_arr[i]:
         ans += 1
 print(ans)
