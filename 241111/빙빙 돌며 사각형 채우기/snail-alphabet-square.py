@@ -5,7 +5,7 @@ def snail_array(n, m):
     dx, dy = 0, 1
 
     while num <= n * m - 1:
-        array[x][y] = chr(num % 27 + 65)
+        array[x][y] = chr(num % 26 + 65)
         num += 1
         nx, ny = x + dx, y + dy
         if 0 <= nx < n and 0 <= ny < m and array[nx][ny] == 0:
