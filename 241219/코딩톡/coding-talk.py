@@ -23,6 +23,7 @@ def find_possible_unread_people(n, m, p, messages):
     for idx, (sender, unread_count) in enumerate(messages[:p-1]):
         if target_unread_count == unread_count:
             start = idx
+            break
 
     for idx, (sender, unread_count) in enumerate(messages[start:]):
         if sender not in s:
