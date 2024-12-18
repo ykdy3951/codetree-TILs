@@ -7,29 +7,33 @@ def read_input():
     return N, seats
 
 def max_distance_after_placement(N, seats):
-    max_min_distance = 0
+    def calculate_min_distance(seats):
+        min_dist = float('inf')
+        last_filled = -1
+
+        for i in range(N):
+            if seats[i] == 1:
+                if last_filled != -1:
+                    min_dist = min(min_dist, (i - last_filled))
+                last_filled = i
+        return min_dist if min_dist != float('inf') else 0
+
+    max_distance = 0
 
     for i in range(N):
         if seats[i] == 0:
             seats[i] = 1
-            min_distance = float('inf')
-            last_person = -1
-
-            for j in range(N):
-                if seats[j] == 1:
-                    if last_person != -1:
-                        min_distance = min(min_distance, (j - last_person) // 2)
-                    last_person = j
-
-            max_min_distance = max(max_min_distance, min_distance)
+            current_min_distance = calculate_min_distance(seats)
+            max_distance = max(max_distance, current_min_distance)
             seats[i] = 0
 
-    return max_min_distance
+    return max_distance
+
 
 def main():
     N, seats = read_input()
     result = max_distance_after_placement(N, seats)
-    print(result+1)
+    print(result)
 
 if __name__ == "__main__":
     main()
