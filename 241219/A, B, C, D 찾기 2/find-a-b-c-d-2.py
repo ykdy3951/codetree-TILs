@@ -9,10 +9,10 @@ def find_abcd(values):
 
     A = values[0]
     B = values[1]
-    C = values[2]
-    D = values[-1] - A - B - C
-
-    return A, B, C, D
+    for C in values[2:]:
+        D = values[-1] - A - B - C
+        if D in values:
+            return A, B, C, D
 
 def main():
     values = read_input()
