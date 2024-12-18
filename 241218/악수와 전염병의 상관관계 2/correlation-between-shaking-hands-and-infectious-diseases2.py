@@ -1,28 +1,28 @@
 N, K, P, T = map(int, input().split())
-P -= 1
 
-handshakes = []
-for i in range(1, T + 1):
-    t, x, y = map(int, input().split())
-    handshakes.append((t, x - 1, y - 1))
-handshakes.sort()
+infected = [0 for _ in range(N + 1)]
+infection_count = [0 for _ in range(N + 1)]
 
-infected = [0] * N
-transmit_count = [0] * N
+handshakes = [list(map(int, input().split())) for _ in range(T)]
+handshakes.sort(key=lambda x: x[0])
+
 infected[P] = 1
-transmit_count[P] = K
+infection_count[P] = K
 
-for _, x, y in handshakes:
-    if infected[x] and transmit_count[x] > 0:
-        if not infected[y]:
-            infected[y] = 1
-            transmit_count[y] = K
-        transmit_count[x] -= 1
+for handshake in handshakes:
+    person1, person2 = handshake[1], handshake[2]
+    if infected[person1] and infection_count[person1] > 0 and not infected[person2]:
+        infected[person2] = 1
+        infection_count[person1] -= 1
+        infection_count[person2] = K
+    elif infected[person2] and infection_count[person2] > 0 and not infected[person1]:
+        infected[person1] = 1
+        infection_count[person2] -= 1
+        infection_count[person1] = K
+    elif infected[person1] and infected[person2]:
+        if infection_count[person1] > 0:
+            infection_count[person1] -= 1
+        if infection_count[person2] > 0:
+            infection_count[person2] -= 1
 
-    if infected[y] and transmit_count[y] > 0:
-        if not infected[x]:
-            infected[x] = 1
-            transmit_count[x] = K
-        transmit_count[y] -= 1
-
-print(''.join(map(str, infected)))
+print(''.join(map(str, infected[1:])))
