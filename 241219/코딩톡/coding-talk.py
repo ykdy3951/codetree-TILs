@@ -24,7 +24,7 @@ def find_possible_unread_people(n, m, p, messages):
         if target_unread_count == unread_count:
             start = idx
 
-    for idx, (sender, unread_count) in enumerate(messages[idx:]):
+    for idx, (sender, unread_count) in enumerate(messages[start:]):
         if sender not in s:
             continue
         s.remove(sender)
