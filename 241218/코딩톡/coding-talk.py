@@ -13,6 +13,9 @@ def find_possible_unread_people(n, m, p, messages):
     people = [chr(ord('A') + i) for i in range(n)]
     s = set(people)
 
+    if not messages[p-1][1]:
+        return []
+
     for idx, (sender, unread_count) in enumerate(messages[p-1:]):
         if sender not in s:
             continue
