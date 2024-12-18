@@ -11,7 +11,7 @@ def find_abcd(values):
     B = values[1]
     for C in values[2:]:
         D = values[-1] - A - B - C
-        if D in values:
+        if sorted([A, B, C, D, A + B, A + C, A + D, B + C, B + D, C + D, A + B + C, A + B + D, A + C + D, B + C + D]) == values[:-1]:
             return A, B, C, D
 
 def main():
